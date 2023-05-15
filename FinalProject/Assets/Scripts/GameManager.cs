@@ -13,6 +13,12 @@ public class GameManager : MonoBehaviour
     
     public Sprite hurtRat;
     public Sprite smashPaper;
+    public Sprite ghost;
+    public AudioClip horrorSound;
+
+    public bool hasMathed = false;
+    public bool hasEnglished = false;
+    
     
     // Start is called before the first frame update
     

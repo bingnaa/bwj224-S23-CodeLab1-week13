@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MATHGAME.unity
     guid: 9058d8f11f613184c881d0a727c05af8
+  - enabled: 1
+    path: Assets/Scenes/ENGLISHGAME.unity
+    guid: b451bcffaac269b4eb51502f50b570ef
   m_configObjects: {}

@@ -20,7 +20,7 @@ public class WooMath : MonoBehaviour
     public GameObject wrongAnswer;
     public GameObject rightAnswer;
     public GameObject questionA;
-    private string[][][] questionArray;
+    public string[][][] questionArray;
 
     public List<GameObject> round;
     public bool firstRound;
@@ -35,7 +35,7 @@ public class WooMath : MonoBehaviour
         questionArray[0] = new string[][] { new string[] { "6x8", "42" } };
         questionArray[1] = new string[][] { new string[] { "16/4", "4" } };
         questionArray[2] = new string[][] { new string[] { "(8 + 4) * 2 - 9 / 3", "13" } };
-        questionArray[3] = new string[][] { new string[] { "stop.", "this isn't math" } };
+        questionArray[3] = new string[][] { new string[] { "stop.", "stop" } };
         roundIndex = 0;
         
         firstRound = true;
@@ -57,13 +57,19 @@ public class WooMath : MonoBehaviour
                 firstRound = false;
                 return;
             }
+            else if (timer + 20 >= timePerTurn && roundIndex == questionArray.Length - 1)
+            {
+                Debug.Log("Lives: " + GameManager.instance.lives);
+                GameManager.instance.hasMathed = true;
+                SceneManager.LoadScene("LOBBY");
+            }
             else if (timer + 20 >= timePerTurn)
             {
                 GameManager.instance.MinusP();
                 Debug.Log("Lives: " + GameManager.instance.lives);
                 SceneManager.LoadScene("LOBBY");
             }
-            
+
             smullFrog.SetActive(false);
             bullFrog.SetActive(true);
         }
